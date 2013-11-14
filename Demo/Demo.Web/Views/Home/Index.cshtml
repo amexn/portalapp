@@ -1,8 +1,17 @@
-﻿@{
-    ViewBag.Title = "Home Page";
+﻿@model IEnumerable<Demo.Web.Models.Thingy>
+
+@{
+	ViewBag.Title = "Index";
+	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>@ViewBag.Message</h2>
-<p>
-    To learn more about ASP.NET MVC visit <a href="http://asp.net/mvc" title="ASP.NET MVC Website">http://asp.net/mvc</a>.
-</p>
+<h2>Thingies</h2>
+<ul>
+@foreach (var thingy in Model)
+{
+	<li>
+		@thingy.Name
+	</li>
+}
+</ul>
+@Html.ActionLink("new", "New")
